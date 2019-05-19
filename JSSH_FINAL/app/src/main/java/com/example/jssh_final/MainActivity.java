@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -31,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView postList;
     private Toolbar mToolbar;
-    private CircleImageView NavProfileImage;
-    private TextView NavProfileUserName;
+   // private CircleImageView NavProfileImage;
+   // private TextView NavProfileUserName;
     private FirebaseAuth mAuth;
+
     String currentUserID;
 
     private DatabaseReference UsersRef, PostsRef, LikesRef;
@@ -67,12 +69,38 @@ public class MainActivity extends AppCompatActivity {
         navigationView =  findViewById(R.id.navigation_view);
 
         View navView = navigationView.inflateHeaderView(R.layout.navigation_header);
-        NavProfileImage =  navView.findViewById(R.id.nav_profile_image);
-        NavProfileUserName =  navView.findViewById(R.id.nav_user_full_name);
+     //   NavProfileImage =  navView.findViewById(R.id.nav_profile_image);
+      //  NavProfileUserName =  navView.findViewById(R.id.nav_user_full_name);
 
 
+      /*  UsersRef.child(currentUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                if(dataSnapshot.exists())
+                {
+                    if(dataSnapshot.hasChild("fullname"))
+                    {
+                        String fullname = dataSnapshot.child("fullname").getValue().toString();
+                        NavProfileUserName.setText(fullname);
+                    }
+                    if(dataSnapshot.hasChild("profileimage"))
+                    {
+                        String image = dataSnapshot.child("profileimage").getValue().toString();
+                        Picasso.with(MainActivity.this).load(image).placeholder(R.drawable.profile).into(NavProfileImage);
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, "Profile name do not exists...", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });*/
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
