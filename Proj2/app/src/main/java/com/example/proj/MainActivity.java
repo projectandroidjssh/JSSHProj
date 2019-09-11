@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Home");
 
-
+/////////////// coooment
         AddNewPostButton = (ImageButton) findViewById(R.id.add_new_post_button);
 
 
